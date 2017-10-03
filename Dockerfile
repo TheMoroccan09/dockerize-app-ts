@@ -1,9 +1,9 @@
 FROM node:boron
 MAINTAINER themoroccan09 <@themoroccan09>
 
-ENV HOME=/usr/src/fm-calculator
-ENV LOG=/var/log/fm-calculator
-ENV PROJECT_DIR=./project_name
+ENV HOME=/usr/src/app-name
+ENV LOG=/var/log/app-name
+ENV PROJECT_DIR=./app-name
 WORKDIR $HOME
 
 #-------------------TOOLS-----------------------
