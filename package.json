@@ -1,0 +1,19 @@
+{
+  "name": "dockerize-app-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themoroccan09/dockerize-app-ts.git"
+  },
+  "author": "themoroccan09",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/themoroccan09/dockerize-app-ts/issues"
+  },
+  "homepage": "https://github.com/themoroccan09/dockerize-app-ts#readme"
+}
