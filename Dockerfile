@@ -1,10 +1,10 @@
 FROM node:boron
-MAINTAINER themoroccan09 <@themoroccan09>
+MAINTAINER themoroccan09 <themoroccan09@github>
 
-ENV HOME=/usr/src/app-name
-ENV LOG=/var/log/app-name
-ENV PROJECT_DIR=./app-name
-WORKDIR $HOME
+ENV APP_NAME=app-ts
+ENV HOME=/usr/src/$APP_NAME
+ENV LOG=/var/log/$APP_NAME
+ENV PROJECT_DIR=./$APP_NAME
 
 #-------------------TOOLS-----------------------
 RUN apt-get update \
@@ -14,8 +14,9 @@ RUN apt-get update \
         iputils-ping
 
 #----------------Create folders and instal packages----------------------------
-RUN mkdir -p $HOME
-RUN mkdir -p $LOG
+RUN mkdir -p $HOME $LOG
+WORKDIR $HOME
+
 COPY $PROJECT_DIR/package.json $HOME/package.json
 RUN npm install
 
