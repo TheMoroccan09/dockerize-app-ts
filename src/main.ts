@@ -4,7 +4,7 @@
 class Application {
 
     sayHello() : void{
-        console.log('Hello World!')
+        console.log('Hello World!!')
     }
 }
 

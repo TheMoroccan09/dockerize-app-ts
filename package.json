@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/themoroccan09/dockerize-app-ts/issues"
   },
-  "homepage": "https://github.com/themoroccan09/dockerize-app-ts#readme"
+  "homepage": "https://github.com/themoroccan09/dockerize-app-ts#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-typescript": "^3.2.2"
+  }
 }
