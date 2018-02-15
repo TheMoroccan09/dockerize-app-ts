@@ -1,12 +1,7 @@
 /**
  * Created by themoroccan09 on 05/10/17.
  */
-class Application {
+import { Server } from './Server'
 
-    sayHello() : void{
-        console.log('Hello World!!')
-    }
-}
-
-let app = new Application();
-app.sayHello();
+let s = new Server()
+s.sayHello()

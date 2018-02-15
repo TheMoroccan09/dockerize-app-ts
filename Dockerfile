@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:boron
 MAINTAINER themoroccan09 <themoroccan09@github>
 
 ENV APP_NAME=app-ts
@@ -28,6 +28,5 @@ RUN rm -rf $HOME/src
 
 
 #------------------------- START APP -----------------------------------------
-
-CMD pm2-docker start dist/src/main.js
+CMD node dist/src/main.js
 EXPOSE 3001
