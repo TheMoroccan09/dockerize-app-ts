@@ -1,17 +1,28 @@
 /**
  * Created by themoroccan09 on 05/10/17.
  */
-export class Server {
-    private static _singleton : Server;
+
+import * as express from 'express'
+
+
+class Server {
+    public express
 
     constructor(){
-        console.log('Class instancied')
+        this.express = express()
+        this.provideRoutes()
     }
 
-    public sayHello(){
-        console.log('Hello World!')
-    }
-    public static singleton(){
-        return this._singleton || (this._singleton = new this())
+    private provideRoutes (): void {
+        const router = express.Router()
+
+        router.get('/', (req, res) => {
+            res.json({
+                message: 'Hello World!'
+            })
+        })
+        this.express.use('/', router)
     }
 }
+
+export default new Server().express

@@ -1,7 +1,13 @@
 /**
  * Created by themoroccan09 on 05/10/17.
  */
-import { Server } from './Server'
+import server from './Server'
 
-let s = new Server()
-s.sayHello()
+const port = 3000
+
+server.listen(port, (err) => {
+    if (err) {
+        return console.log(err)
+    }
+    return console.log(`server is listening on ${port}`)
+})
