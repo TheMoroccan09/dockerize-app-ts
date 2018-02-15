@@ -1,7 +1,7 @@
 FROM node:boron
 MAINTAINER themoroccan09 <themoroccan09@github>
 
-ENV APP_NAME=app-ts
+ENV APP_NAME=app
 ENV HOME=/usr/src/$APP_NAME
 ENV LOG=/var/log/$APP_NAME
 
@@ -28,5 +28,5 @@ RUN rm -rf $HOME/src
 
 
 #------------------------- START APP -----------------------------------------
-CMD node dist/src/main.js
-EXPOSE 3001
+CMD npm start
+EXPOSE 3000
