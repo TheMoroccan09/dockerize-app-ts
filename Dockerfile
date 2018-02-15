@@ -28,5 +28,5 @@ RUN rm -rf $HOME/src
 
 
 #------------------------- START APP -----------------------------------------
-CMD npm start
+ENTRYPOINT ["pm2-docker", "dist/src/main.js"]
 EXPOSE 3000
