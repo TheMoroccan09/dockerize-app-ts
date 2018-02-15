@@ -1,36 +1,33 @@
-FROM node:boron
+FROM node:latest
 MAINTAINER themoroccan09 <themoroccan09@github>
 
 ENV APP_NAME=app-ts
 ENV HOME=/usr/src/$APP_NAME
 ENV LOG=/var/log/$APP_NAME
-ENV PROJECT_DIR=./$APP_NAME
 
-#-------------------TOOLS-----------------------
+####### UTILS
 RUN apt-get update \
         && apt-get install -y git \
         nano \
         openssh-client \
         iputils-ping
 
-#----------------Create folders and instal packages----------------------------
+####### Install dependencies
 RUN mkdir -p $HOME $LOG
 WORKDIR $HOME
-
-COPY $PROJECT_DIR/package.json $HOME/package.json
+RUN npm i -g typescript gulp pm2
+COPY ./package.json ./gulpfile.js $HOME/
 RUN npm install
 
-#---------------- Installation Global -----------------------------------------
-RUN npm install -g gulp pm2
+####### Copy Files
+COPY ./src/ $HOME/
 
+#---------------------Compile and clean folder---------------------------------------n
+RUN gulp compile
+RUN rm -rf $HOME/src
 
-#--------------------- Copy files---------------- -----------------------------
-COPY $PROJECT_DIR $HOME/
-
-#---------------------Compile with gulp---------------------------------------
-RUN gulp
 
 #------------------------- START APP -----------------------------------------
 
-CMD pm2-docker start dist/main.js
+CMD pm2-docker start dist/src/main.js
 EXPOSE 3001
